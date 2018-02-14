@@ -1,7 +1,9 @@
 # Requirements
 
+Use https://registry.npmjs.org/<package-name> . 
+
 Usage : 
-  - [ ] Go to https://www.npmjs.com and grab the names of the npm packages you want to compare
+  - Go to https://www.npmjs.com and grab the names of the npm packages you want to compare (the users task)
   - [ ] Use this tool like e.g. `node ./compare-npm-packages.js bcrypt bcrypt-nodejs` 
   - [ ] Depending on the stats for each package the tool will tell you about how certain it is, that choosing that package is a good idea and will finally recommend one.
 
