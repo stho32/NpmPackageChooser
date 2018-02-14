@@ -1,6 +1,9 @@
 # Requirements
 
-Use https://registry.npmjs.org/<package-name> . 
+Useful urls: 
+  -  https://registry.npmjs.org/<package-name> . 
+  - https://stackoverflow.com/questions/16389851/how-do-i-choose-a-node-module
+
 
 Usage : 
   - Go to https://www.npmjs.com and grab the names of the npm packages you want to compare (the users task)
