@@ -23,7 +23,17 @@ What does the node package chooser look for?
      - In the Readme.md, is there a Travis CI build icon? If so, does it say "Build passing" (Yes is better and the value of a yes here is equivalent to a travis ci logo on the npm page.)
   - The licence of the project is printed out since I do not know what licences may be a good choice for you.
 
-# Tool versions
+## Tool versions needed
 
  - nodejs v.9.5.0
  - npm v.5.6.0
+ - npm install mocha -g (version 5.0.1)
+
+## Getting it up and running
+
+```bash
+
+npm install
+npm test
+
+```
