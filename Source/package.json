@@ -1,0 +1,24 @@
+{
+  "name": "compare-npm-packages",
+  "version": "0.0.1",
+  "description": "App to compare a list of npm repositories to find the best one",
+  "main": "compare-npm-packages.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stho32/NpmPackageChooser.git"
+  },
+  "keywords": [
+    "npm",
+    "package",
+    "chooser"
+  ],
+  "author": "Stefan Hoffmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stho32/NpmPackageChooser/issues"
+  },
+  "homepage": "https://github.com/stho32/NpmPackageChooser#readme"
+}
