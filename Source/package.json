@@ -4,7 +4,7 @@
   "description": "App to compare a list of npm repositories to find the best one",
   "main": "compare-npm-packages.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "clear & mocha Tests --recursive"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/stho32/NpmPackageChooser/issues"
   },
-  "homepage": "https://github.com/stho32/NpmPackageChooser#readme"
+  "homepage": "https://github.com/stho32/NpmPackageChooser#readme",
+  "devDependencies": {
+    "chai": "^4.1.2"
+  }
 }
