@@ -32,8 +32,7 @@ What does the node package chooser look for?
 ## Getting it up and running
 
 ```bash
-
+cd Source/
 npm install
 npm test
-
 ```
