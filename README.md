@@ -23,12 +23,7 @@ What does the node package chooser look for?
      - In the Readme.md, is there a Travis CI build icon? If so, does it say "Build passing" (Yes is better and the value of a yes here is equivalent to a travis ci logo on the npm page.)
   - The licence of the project is printed out since I do not know what licences may be a good choice for you.
 
-# Project
+# Tool versions
 
-See [requirements](Documentation/Requirements.md) for the instructions.
-
-The folder "Provided-Files" contains the files provided for the project.
-
-You might also be interested in my [notes](Documentation/Notes.md) where I share my thoughts about why I chose one way of solution over another. 
-
-And here you can find my [pomodoro-log](Documentation/Pomodoro-Log.md) for the project.
+ - nodejs v.9.5.0
+ - npm v.5.6.0
