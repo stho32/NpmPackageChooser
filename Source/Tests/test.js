@@ -10,5 +10,16 @@ describe('npm-registry-api', function() {
     });
   });
 
+  it('downloads stats of a npm package', function() {
+    npm.getPackageInfo("bcrypt", result => {
+      expect(result.latestVersion, "Latest version").to.equal("1.0.3");
+      expect(result.releaseDate, "Release date and time").to.equal("2017-08-24T03:47:34.385Z");
+      expect(result.releaseCount, "Release count").to.equal(36);
+      // Get downloads:
+      // https://api.npmjs.org/downloads/range/2018-01-01:2018-02-01/bcrypt
+      console.dir(result);
+    })
+  })
+
 });
 

@@ -14,11 +14,26 @@ function getPackageInfo(packageName, onResultAvailable) {
         let resultText = "";
     
         response.on('data', data => {
-            resultText += resultText + data.toString();
+            resultText += data.toString();
         });
 
         response.on('end', () => {
-            onResultAvailable(JSON.parse(resultText));
+            let possibleResult = {};
+            try
+            {
+                //console.log(resultText);
+                possibleResult = JSON.parse(resultText);
+            }
+            catch(e) {
+                console.error("Error parsing json from npm! " + e.message)
+            }
+
+            let result = {}
+            result.latestVersion = possibleResult["dist-tags"].latest;
+            result.releaseDate   = possibleResult["time"][result.latestVersion];
+            result.releaseCount  = Object.keys(possibleResult["versions"]).length;
+
+            onResultAvailable(result);
         });
     
     }).on('error', (e) => {
