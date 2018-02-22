@@ -3,5 +3,5 @@ cd Source/
 while true; do
     clear
     mocha Tests --recursive
-    sleep 5
+    sleep 30
 done
