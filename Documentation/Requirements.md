@@ -7,8 +7,8 @@ Useful urls:
 Extract the following information with APIs:
   - [x] When was the last release published?
   - [x] How many releases have taken place?
-  - [A] How many downloads (last day / last week) does the package have? (example url https://api.npmjs.org/downloads/range/2018-01-01:2018-02-01/bcrypt)
-  - [ ] How many open issues are there? (Lot of issues means buggy library.)
+  - [x] How many downloads (last day / last week) does the package have? (example url https://api.npmjs.org/downloads/range/2018-01-01:2018-02-01/bcrypt)
+  - [>] How many open issues are there? (Lot of issues means buggy library.)
   - [ ] How many pull requests are there? (A higher value means that they are not 'pulled'.)
   - [ ] Is a travis CI build Icon present? If so, does it say "Build passing" (Yes is better)
   - [ ] It goes to the github project page and compares
