@@ -18,8 +18,10 @@ describe('npm-registry-api', function() {
       // Get downloads:
       // https://api.npmjs.org/downloads/range/2018-01-01:2018-02-01/bcrypt
       console.dir(result);
-    })
-  })
+    });
+  });
+
+  it('moment()')
 
 });
 
