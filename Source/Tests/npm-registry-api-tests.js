@@ -25,6 +25,7 @@ describe('npm-registry-api.getPackageDownloads', function() {
   it('grabs the sum of the downloads of the last 7 days', function() {
     npm.getPackageDownloads("bcrypt", function(data) {
       expect(data, "Downloads of the last 7 days").to.be.greaterThan(0);
+      console.log("bcrypt has been downloaded " + data + " times in the last 7 days.");
     });
   });
 });
