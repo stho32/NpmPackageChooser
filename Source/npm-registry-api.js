@@ -80,6 +80,7 @@ function getPackageInfo(packageName, onResultAvailable) {
             result.latestVersion = possibleResult["dist-tags"].latest;
             result.releaseDate   = possibleResult["time"][result.latestVersion];
             result.releaseCount  = Object.keys(possibleResult["versions"]).length;
+            result.readmeMd      = possibleResult["readme"];
 
             onResultAvailable(result);
         });
