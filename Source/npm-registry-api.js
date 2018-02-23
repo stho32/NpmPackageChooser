@@ -70,6 +70,7 @@ function getPackageInfo(packageName, onResultAvailable) {
             {
                 //console.log(resultText);
                 possibleResult = JSON.parse(resultText);
+                //console.dir(possibleResult);
             }
             catch(e) {
                 console.error("Error parsing json from npm! " + e.message)

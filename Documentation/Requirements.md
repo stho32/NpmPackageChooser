@@ -8,10 +8,10 @@ Extract the following information with APIs:
   - [x] When was the last release published?
   - [x] How many releases have taken place?
   - [x] How many downloads (last day / last week) does the package have? (example url https://api.npmjs.org/downloads/range/2018-01-01:2018-02-01/bcrypt)
-  - [>] How many open issues are there? (Lot of issues means buggy library.)
-  - [ ] How many pull requests are there? (A higher value means that they are not 'pulled'.)
-  - [ ] Is a travis CI build Icon present? If so, does it say "Build passing" (Yes is better)
+  - [x] Is a travis CI build Icon present? If so, does it say "Build passing" (Yes is better)
   - [ ] It goes to the github project page and compares
+     - [>] How many open issues are there? (Lot of issues means buggy library.)
+     - [ ] How many pull requests are there? (A higher value means that they are not 'pulled'.)
      - [ ] How many watches, stars and forks are there? (more are better)
      - [ ] How many contributers are there? (more means probable better)
      - [ ] In the Readme.md, is there a Travis CI build icon? If so, does it say "Build passing" (Yes is better and the value of a yes here is equivalent to a travis ci logo on the npm page.)
