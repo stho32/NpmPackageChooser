@@ -4,36 +4,76 @@
  */
 
 let npm = require("./npm-registry-api.js");
-let buildStatus = require("./build-status-extractor.js");
+let buildStatusExtractor = require("./build-status-extractor.js");
 
-let outputPackageInformation = (packageName, npmResult, buildStatus, downloads) => {
+let outputPackageInformation = (packageName, npmResult, buildStatus, downloads, issueTrackerStats) => {
     delete(npmResult.readmeMd);
+
+    //console.dir(npmResult);
+
+    issueTrackerStats = issueTrackerStats || {};
+
     console.log(`
 Package: ${packageName}
+  repository url: ${npmResult.repositoryUrl}
+  issue tracker url: ${npmResult.issueTrackerUrl}
+
   latest version: ${npmResult.latestVersion}
   last release date: ${npmResult.releaseDate}
   release count: ${npmResult.releaseCount}
   build status: ${buildStatus || "unknown"}
   downloads of the last 7 days: ${downloads}
+  issueTrackerStats : 
+    ${issueTrackerStats.openIssues || "unknown"} Open Issues
+    ${issueTrackerStats.closedIssues || "unknown"} Closed Issues
 `);
 };
 
-let getPackageInfo = (packageName) => {
-    npm.getPackageInfo(packageName, (npmResult) => {
+let errorHandler = (error) => {
+    console.error(error);
+};
 
-        npm.getPackageDownloads(packageName, downloads => {
-            let buildStatusResult = "";
-            let buildStatusUrl = buildStatus.getBuildStatusImageUrlFromMarkdown(npmResult.readmeMd);
-            if ( buildStatusUrl !== undefined ) {
-                buildStatus.getBuildStatusFromSvg(buildStatusUrl, buildStatus => {
-                    outputPackageInformation(packageName, npmResult, buildStatus, downloads);
-                });
-                return;
-            }
-    
-            outputPackageInformation(packageName, npmResult, undefined, downloads);
-        });
-    });
+let getPackageInfo = (packageName) => {
+    let packageInfo = undefined;
+    let packageDownloads = undefined;
+    let buildStatus = undefined;
+    let issueTrackerStats = undefined;
+
+    npm.getPackageInfo(packageName)
+    .then((packageInfoResult) => {
+        packageInfo = packageInfoResult;
+
+        return npm.getPackageDownloads(packageName);
+    }, errorHandler)
+    .then((packageDownloadsResult) => {
+        packageDownloads = packageDownloadsResult;
+
+        let buildStatusResult = "";
+        let buildStatusUrl = buildStatusExtractor.getBuildStatusImageUrlFromMarkdown(packageInfo.readmeMd);
+        if ( buildStatusUrl !== undefined ) {
+            return buildStatusExtractor.getBuildStatusFromSvg(buildStatusUrl);
+        } else {
+            return Promise.resolve(undefined);
+        }
+    }, errorHandler)
+    .then((buildStatusResult) => {
+        buildStatus = buildStatusResult;
+
+        if (packageInfo.issueTrackerUrl !== undefined) {
+            return npm.getIssueStats(packageInfo.issueTrackerUrl);
+        }
+
+        return Promise.resolve();
+    }, errorHandler)
+    .then((issueTrackerStatsResults) => {
+        issueTrackerStats = issueTrackerStatsResults;
+
+        return Promise.resolve();
+    }, errorHandler)
+    .then(() => {
+        // finally ...
+        outputPackageInformation(packageName, packageInfo, buildStatus, packageDownloads, issueTrackerStats);
+    }, errorHandler);
 }
 
 let packages = process.argv.slice(2);
@@ -41,3 +81,4 @@ let packages = process.argv.slice(2);
 packages.forEach( package => {
     getPackageInfo(package);
 });
+

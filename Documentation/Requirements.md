@@ -10,7 +10,8 @@ Extract the following information with APIs:
   - [x] How many downloads (last day / last week) does the package have? (example url https://api.npmjs.org/downloads/range/2018-01-01:2018-02-01/bcrypt)
   - [x] Is a travis CI build Icon present? If so, does it say "Build passing" (Yes is better)
   - [ ] It goes to the github project page and compares
-     - [>] How many open issues are there? (Lot of issues means buggy library.)
+     - [x] How many open issues are there? (Lot of issues means buggy library.)
+     - [x] How many closed issues are there? (Lot of them means active community.)
      - [ ] How many pull requests are there? (A higher value means that they are not 'pulled'.)
      - [ ] How many watches, stars and forks are there? (more are better)
      - [ ] How many contributers are there? (more means probable better)
