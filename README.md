@@ -36,3 +36,43 @@ cd Source/
 npm install
 npm test
 ```
+
+## Example calls
+
+From bash, you can use the shell script, wich is a simple adapter for the node command line to start.
+```bash
+./compare-npm-packages.sh bcrypt bcryptjs
+```
+
+example output:
+```
+$ ./compare-npm-packages.sh bcrypt bcryptjs
+
+Package: bcryptjs
+  repository url: git+https://github.com/dcodeIO/bcrypt.js.git
+  issue tracker url: https://github.com/dcodeIO/bcrypt.js/issues
+
+  latest version: 2.4.3
+  last release date: 2017-02-07T09:43:46.316Z
+  release count: 25
+  build status: unknown
+  downloads of the last 7 days: 214593
+  issueTrackerStats : 
+    12 Open Issues
+    50 Closed Issues
+
+
+Package: bcrypt
+  repository url: git+https://github.com/kelektiv/node.bcrypt.js.git
+  issue tracker url: https://github.com/kelektiv/node.bcrypt.js/issues
+
+  latest version: 1.0.3
+  last release date: 2017-08-24T03:47:34.385Z
+  release count: 36
+  build status: passing
+  downloads of the last 7 days: 153240
+  issueTrackerStats : 
+    9 Open Issues
+    476 Closed Issues
+```
+
