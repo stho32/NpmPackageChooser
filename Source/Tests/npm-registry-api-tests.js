@@ -1,15 +1,17 @@
 var chai = require('chai');
+var chaiAsPromised = require("chai-as-promised");
+chai.should();
+chai.use(chaiAsPromised);
 var expect = chai.expect; 
+
 var npm = require('./../npm-registry-api.js');
 var moment = require("moment");
 var https = require("https");
 
 describe('npm-registry-api.getPackageInfo', function() {
 
-  it('will generate an error message when the package does not exist.', function() {
-    npm.getPackageInfo("not-existing", (result) => {
-      expect(result.errorMessage).to.equal("A package with the name 'not-existing' could not be found.");
-    });
+  it('will generate an error message when the package does not exist.', function(done) {
+    npm.getPackageInfo("not-existing").should.be.rejectedWith("A package with the name 'not-existing' could not be found.").and.notify(done);
   });
 
   it('downloads stats of a npm package', function() {
