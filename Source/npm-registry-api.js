@@ -2,6 +2,13 @@ let npmRegistryUrl = "https://registry.npmjs.org/";
 let https = require("https");
 let moment = require("moment");
 
+/**
+ * This function grabs the downloads of the last 7 days from the 
+ * npm registry statistics. This is the same value as shown on the 
+ * web page for "last week".
+ * 
+ * @param {string} packageName 
+ */
 function getPackageDownloads(packageName) {
     let dayCount = 7;
 
@@ -48,6 +55,13 @@ function getPackageDownloads(packageName) {
     });
 }
 
+/**
+ * This function grabs the general information about the package from the 
+ * npm registry, including the last version, release date, some urls,
+ * and the readme, which is used later to extract the build status.
+ * 
+ * @param {string} packageName 
+ */
 function getPackageInfo(packageName) {
 
     return new Promise(function (resolve, reject) {
