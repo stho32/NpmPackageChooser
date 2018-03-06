@@ -8,7 +8,7 @@ describe('build-status-extractor.getBuildStatusImageUrlFromMarkdown', function (
   it('will return undefined if no build url is present', function () {
     let buildStatusInfo = buildStatus.getBuildStatusImageUrlFromMarkdown("nothing here");
 
-    expect(buildStatusInfo).to.be.undefined();
+    expect(buildStatusInfo).to.be.undefined;
   });
 
   it("will return the url, if it finds it", function () {
@@ -16,7 +16,7 @@ describe('build-status-extractor.getBuildStatusImageUrlFromMarkdown', function (
 
     let buildStatusInfo = buildStatus.getBuildStatusImageUrlFromMarkdown(readmeMd);
 
-    expect(result).equals("https://travis-ci.org/kelektiv/node.bcrypt.js.svg?branch=master");
+    expect(buildStatusInfo).equals("https://travis-ci.org/kelektiv/node.bcrypt.js.svg?branch=master");
   });
 
 });
