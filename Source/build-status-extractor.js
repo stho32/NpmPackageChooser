@@ -1,6 +1,6 @@
 let https = require("https");
 
-function getBuildStatusImageUrlFromMarkdown(markdownText, onResultAvailable) {
+function getBuildStatusImageUrlFromMarkdown(markdownText) {
     let buildStatusRegEx = /\[Build Status\]\((.+?)\)/g;
     let buildStatusImage = buildStatusRegEx.exec(markdownText);
 
