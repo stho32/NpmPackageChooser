@@ -16,7 +16,7 @@ Extract the following information with APIs:
      - [ ] How many watches, stars and forks are there? (more are better)
      - [ ] How many contributers are there? (more means probable better)
      - [ ] In the Readme.md, is there a Travis CI build icon? If so, does it say "Build passing" (Yes is better and the value of a yes here is equivalent to a travis ci logo on the npm page.)
-  - [ ] The licence of the project is printed out since I do not know what licences may be a good choice for you.
+  - [x] The licence of the project is printed out since I do not know what licences may be a good choice for you.
 
 Implement the following rules: 
   - [ ] A younger release date is better.
