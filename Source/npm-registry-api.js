@@ -94,6 +94,7 @@ function getPackageInfo(packageName) {
                 result.releaseDate = possibleResult["time"][result.latestVersion];
                 result.repositoryUrl = possibleResult["versions"][result.latestVersion].repository.url;
                 result.issueTrackerUrl = possibleResult["versions"][result.latestVersion].bugs.url;
+                result.license = possibleResult["versions"][result.latestVersion].license;
                 result.releaseCount = Object.keys(possibleResult["versions"]).length;
                 result.readmeMd = possibleResult["readme"];
 

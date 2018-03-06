@@ -9,8 +9,6 @@ let buildStatusExtractor = require("./build-status-extractor.js");
 let outputPackageInformation = (packageName, npmResult, buildStatus, downloads, issueTrackerStats) => {
     delete(npmResult.readmeMd);
 
-    //console.dir(npmResult);
-
     issueTrackerStats = issueTrackerStats || {};
 
     console.log(`
@@ -24,8 +22,9 @@ Package: ${packageName}
   build status: ${buildStatus || "unknown"}
   downloads of the last 7 days: ${downloads}
   issueTrackerStats : 
-    ${issueTrackerStats.openIssues || "unknown"} Open Issues
-    ${issueTrackerStats.closedIssues || "unknown"} Closed Issues
+    ${issueTrackerStats.openIssues || "unknown"} open issues
+    ${issueTrackerStats.closedIssues || "unknown"} closed issues
+  licence : ${npmResult.license}
 `);
 };
 
