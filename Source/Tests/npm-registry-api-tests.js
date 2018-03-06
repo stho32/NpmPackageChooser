@@ -14,12 +14,18 @@ describe('npm-registry-api.getPackageInfo', function() {
     npm.getPackageInfo("not-existing").should.be.rejectedWith("A package with the name 'not-existing' could not be found.").and.notify(done);
   });
 
-  it('downloads stats of a npm package', function() {
-    npm.getPackageInfo("bcrypt", result => {
-      expect(result.latestVersion, "Latest version").to.equal("1.0.3");
-      expect(result.releaseDate, "Release date and time").to.equal("2017-08-24T03:47:34.385Z");
-      expect(result.releaseCount, "Release count").to.equal(36);
-    });
+  it('downloads stats of a npm package', function(done) {
+    let bcryptPackageInfo = npm.getPackageInfo("bcrypt")
+    .then(
+      result => {
+        expect(result.latestVersion, "Latest version").to.equal("1.0.3");
+        expect(result.releaseDate, "Release date and time").to.equal("2017-08-24T03:47:34.385Z");
+        expect(result.releaseCount, "Release count").to.equal(36);
+      },
+      error => {
+        expect.fail();
+      }
+    );
   });
 });
 
