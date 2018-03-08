@@ -77,7 +77,7 @@ let getPackageInfo = (packageName) => {
 
 let packages = process.argv.slice(2);
 
-packages.forEach( package => {
-    getPackageInfo(package);
+packages.forEach( packageName => {
+    getPackageInfo(packageName);
 });
 
