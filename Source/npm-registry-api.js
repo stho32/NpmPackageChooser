@@ -93,7 +93,15 @@ function getPackageInfo(packageName) {
                 result.latestVersion = possibleResult["dist-tags"].latest;
                 result.releaseDate = possibleResult["time"][result.latestVersion];
                 result.repositoryUrl = possibleResult["versions"][result.latestVersion].repository.url;
-                result.issueTrackerUrl = possibleResult["versions"][result.latestVersion].bugs.url;
+
+                /* Sometimes the bugs subkey is missing. In this case
+                   we cannot read the url. */
+                result.issueTrackerUrl = "";
+                if ( possibleResult["versions"][result.latestVersion].bugs !== undefined ) {
+                    result.issueTrackerUrl = possibleResult["versions"][result.latestVersion].bugs.url;
+                }
+
+
                 result.license = possibleResult["versions"][result.latestVersion].license;
                 result.releaseCount = Object.keys(possibleResult["versions"]).length;
                 result.readmeMd = possibleResult["readme"];
